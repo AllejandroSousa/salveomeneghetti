@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <locale.h>
 #include "salveomeneghetti.h"
 #include "mapa.h"
 #include "ui.h"
@@ -8,6 +9,7 @@
 MAPA m;
 POSICAO heroi;
 int tempilula = 0;
+int venceu = 0;
 
 int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino) {
     int opcoes[4][2] = { {xatual, yatual+1},
@@ -104,6 +106,7 @@ int acabou() {
 int ganhou() {
     POSICAO pos;
     int fantasmas = encontraheroi(&m, &pos, FANTASMA);
+    if (fantasmas == 0) venceu++;
     return !fantasmas;
 }
 
@@ -130,7 +133,7 @@ void explodepilula2(int x, int y, int somax, int somay, int qtd) {
 }
 
 int main () {
-
+    setlocale(LC_ALL, "Portuguese");
     lemapa(&m);
     encontraheroi(&m, &heroi, HEROI);
     do {
@@ -144,8 +147,45 @@ int main () {
         move(comando);
         if (comando == BOMBA) explodepilula();
         fanstasmas();
+        system("cls");
     } while (!acabou() && !ganhou());
+    system("cls");
     
+     if (venceu > 0) {
+        printf("\nOBRIGADO POR ME SALVAR, ESTÁ APROVADO!\n\n");
+
+        printf("       ___________      \n");
+        printf("      '._==_==_=_.'     \n");
+        printf("      .-\\:      /-.    \n");
+        printf("     | (|:.     |) |    \n");
+        printf("      '-|:.     |-'     \n");
+        printf("        \\::.    /      \n");
+        printf("         '::. .'        \n");
+        printf("           ) (          \n");
+        printf("         _.' '._        \n");
+        printf("        '-------'       \n\n");
+    } else {
+        printf("\nVOCÊ FALHOU! SEU INFAME, VOCÊ ACHOU QUE EU MORRERIA?\n");
+        printf("Está reprovado!\n");
+
+        printf("    _______________         \n");
+        printf("   /               \\       \n"); 
+        printf("  /                 \\      \n");
+        printf("//                   \\/\\  \n");
+        printf("\\|   XXXX     XXXX   | /   \n");
+        printf(" |   XXXX     XXXX   |/     \n");
+        printf(" |   XXX       XXX   |      \n");
+        printf(" |                   |      \n");
+        printf(" \\__      XXX      __/     \n");
+        printf("   |\\     XXX     /|       \n");
+        printf("   | |           | |        \n");
+        printf("   | I I I I I I I |        \n");
+        printf("   |  I I I I I I  |        \n");
+        printf("   \\_             _/       \n");
+        printf("     \\_         _/         \n");
+        printf("       \\_______/           \n");
+    }
+    system("pause");
     //Liberando a memória
     liberamapa(&m);
 }
