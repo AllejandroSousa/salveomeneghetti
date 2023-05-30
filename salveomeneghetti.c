@@ -11,6 +11,25 @@ POSICAO heroi;
 int tempilula = 0;
 int venceu = 0;
 
+void abertura() {
+    printf("            BEM-VINDO AO SALVE O MENEGHETTI\n");
+    printf("    Você tem a gloriosa missão de salvar o mestre Meneghetti\n\n");
+    printf("__________________|      |____________________________________________\n");
+    printf("     ,--.    ,--.          ,--.   ,--.\n");
+    printf("    |oo  | _  \\  `.       | oo | |  oo|\n");
+    printf("o  o|~~  |(_) /   ;       | ~~ | |  ~~|o  o  o  o  o  o  o  o  o  o  o\n");
+    printf("    |/\\/\\|   '._,'        |/\\/\\| |/\\/\\|\n");
+    printf("__________________        ____________________________________________\n");
+    printf("                  |      |\n\n");
+    printf("Comandos do jogo: \n");
+    printf("CIMA - W\n");
+    printf("DIREITA - D\n");
+    printf("BAIXO - S\n");
+    printf("ESQUERDA - A\n\n");
+    printf("OBS: é necessário digitar um comando e em seguida apertar enter\n");
+    printf("Digitar mais de um comando antes do enter resultará em movimentações consecutivas");
+}
+
 int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino) {
     int opcoes[4][2] = { {xatual, yatual+1},
                         {xatual + 1, yatual},
@@ -134,6 +153,8 @@ void explodepilula2(int x, int y, int somax, int somay, int qtd) {
 
 int main () {
     setlocale(LC_ALL, "Portuguese");
+    abertura();
+    system("pause");
     lemapa(&m);
     encontraheroi(&m, &heroi, HEROI);
     do {
