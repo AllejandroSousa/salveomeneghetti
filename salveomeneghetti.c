@@ -25,9 +25,15 @@ void abertura() {
     printf("CIMA - W\n");
     printf("DIREITA - D\n");
     printf("BAIXO - S\n");
-    printf("ESQUERDA - A\n\n");
+    printf("ESQUERDA - A\n");
+    printf("BOMBA - B\n");
     printf("OBS: é necessário digitar um comando e em seguida apertar enter\n");
-    printf("Digitar mais de um comando antes do enter resultará em movimentações consecutivas\n");
+    printf("Digitar mais de um comando antes do enter resultará em movimentações consecutivas\n\n");
+    printf("Instruções: \n");
+    printf("ENVIE OS DOIS ALUNOS REPROVADOS PARA OUTRO PLANO E SALVE O MENEGHETTI\n");
+    printf("A BOMBA EXPLODE UMA CASA EM CADA DIREÇÃO\n");
+    printf("OS FANTASMAS MORRERÃO COM UMA ÚNICA BOMBA CASO ESTEJAM EM UMA MESMA LINHA\n");
+
 }
 
 int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino) {
