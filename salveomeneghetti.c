@@ -27,7 +27,7 @@ void abertura() {
     printf("BAIXO - S\n");
     printf("ESQUERDA - A\n\n");
     printf("OBS: é necessário digitar um comando e em seguida apertar enter\n");
-    printf("Digitar mais de um comando antes do enter resultará em movimentações consecutivas");
+    printf("Digitar mais de um comando antes do enter resultará em movimentações consecutivas\n");
 }
 
 int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino) {
